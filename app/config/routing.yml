@@ -1,0 +1,5 @@
+santa_cool_school:
+    resource: "@SantaCoolSchoolBundle/Controller/"
+    type : annotation
+    prefix:   /
+

@@ -1,6 +1,8 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-{{ name }}
-{% endblock %}
+{% block title %}CoolSchoolproject{% endblock %}
+{% block container %}
 
+    {{ schools }}
+    {#<a href="{{ path('oolschool_school_get', {'slug': store.slug}) }}">{{ school.title }}</a>#}
+{% endblock %}

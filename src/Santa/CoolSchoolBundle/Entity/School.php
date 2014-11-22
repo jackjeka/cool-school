@@ -3,6 +3,7 @@
 namespace Santa\CoolSchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * School
@@ -29,19 +30,17 @@ class School
     private $name;
 
     /**
-     * @var
-     *
-     * @ORM\OneToMany (targetEntity="Santa\CoolSchoolBundle\Entity\Teacher", mappedBy="school")
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug", type="string", length=255)
      */
-    private $teachers;
+    private $slug;
 
     /**
-     * @var
+     * @var integer
      *
-     * @ORM\OneToMany (targetEntity="Santa\CoolSchoolBundle\Entity\Subject", mappedBy="school")
+     * @ORM\Column(name="student_quantity", type="integer", nullable=true)
      */
-    private $subjects;
-
+    private $studentQuantity;
 
     /**
      * Get id
@@ -74,51 +73,5 @@ class School
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set teachers
-     *
-     * @param string $teachers
-     * @return School
-     */
-    public function setTeachers($teachers)
-    {
-        $this->teachers = $teachers;
-
-        return $this;
-    }
-
-    /**
-     * Get teachers
-     *
-     * @return string 
-     */
-    public function getTeachers()
-    {
-        return $this->teachers;
-    }
-
-    /**
-     * Set subjects
-     *
-     * @param string $subjects
-     * @return School
-     */
-    public function setSubjects($subjects)
-    {
-        $this->subjects = $subjects;
-
-        return $this;
-    }
-
-    /**
-     * Get subjects
-     *
-     * @return string 
-     */
-    public function getSubjects()
-    {
-        return $this->subjects;
     }
 }

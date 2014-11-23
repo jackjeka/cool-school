@@ -3,15 +3,14 @@
 namespace Santa\CoolSchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * School
+ * SchoolClass
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class School
+class SchoolClass
 {
     /**
      * @var integer
@@ -30,10 +29,11 @@ class School
     private $name;
 
     /**
-     * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(name="slug", type="string", length=255)
+     * @var
+     *
+     * @ORM\ManyToOne(targetEntity="School")
      */
-    private $slug;
+    private $school;
 
     /**
      * @var integer
@@ -41,13 +41,6 @@ class School
      * @ORM\Column(name="totalStudents", type="integer", nullable=true)
      */
     private $totalStudents;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="totalClasses", type="integer", nullable=true)
-     */
-    private $totalClasses;
 
 
     /**
@@ -64,7 +57,7 @@ class School
      * Set name
      *
      * @param string $name
-     * @return School
+     * @return SchoolClass
      */
     public function setName($name)
     {
@@ -83,34 +76,34 @@ class School
         return $this->name;
     }
 
-
-
     /**
-     * Set slug
+     * Set school
      *
-     * @param string $slug
-     * @return School
+     * @param string $school
+     * @return SchoolClass
      */
-    public function setSlug($slug)
+    public function setSchool($school)
     {
-        $this->slug = $slug;
+        $this->school = $school;
+
         return $this;
     }
+
     /**
-     * Get slug
+     * Get school
      *
-     * @return string
+     * @return string 
      */
-    public function getSlug()
+    public function getSchool()
     {
-        return $this->slug;
+        return $this->school;
     }
 
     /**
      * Set totalStudents
      *
      * @param integer $totalStudents
-     * @return School
+     * @return SchoolClass
      */
     public function setTotalStudents($totalStudents)
     {
@@ -127,28 +120,5 @@ class School
     public function getTotalStudents()
     {
         return $this->totalStudents;
-    }
-
-    /**
-     * Set totalClasses
-     *
-     * @param integer $totalClasses
-     * @return School
-     */
-    public function setTotalClasses($totalClasses)
-    {
-        $this->totalClasses = $totalClasses;
-
-        return $this;
-    }
-
-    /**
-     * Get totalClasses
-     *
-     * @return integer 
-     */
-    public function getTotalClasses()
-    {
-        return $this->totalClasses;
     }
 }

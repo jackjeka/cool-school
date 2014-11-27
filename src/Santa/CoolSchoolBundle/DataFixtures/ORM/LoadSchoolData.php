@@ -1,12 +1,10 @@
 <?php
 namespace Santa\CoolSchoolBundle\DataFixtures\ORM;
-
-use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Santa\CoolSchoolBundle\Entity\School;
 
-class LoadSchoolData extends AbstractFixture implements OrderedFixtureInterface
+class LoadSchoolData implements FixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -16,12 +14,21 @@ class LoadSchoolData extends AbstractFixture implements OrderedFixtureInterface
         $school1 = new School();
         $school1
             ->setName('Гуманитарно-правовой лицей')
+            ->setTotalClasses(1)
+            ->setTotalStudents(1)
             ;
 
+        $school2 = new School();
+        $school2
+            ->setName('Школа №11')
+            ->setTotalClasses(10)
+            ->setTotalStudents(128)
+        ;
+
         $manager->persist($school1);
+        $manager->persist($school2);
         $manager->flush();
 
-        $this->addReference('school1', $school1);
     }
 
     /**

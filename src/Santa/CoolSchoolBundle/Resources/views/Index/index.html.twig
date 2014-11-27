@@ -2,7 +2,21 @@
 
 {% block title %}CoolSchoolproject{% endblock %}
 {% block container %}
-
-    {{ schools }}
-    {#<a href="{{ path('oolschool_school_get', {'slug': store.slug}) }}">{{ school.title }}</a>#}
+    <div class="row">
+    <div class="col-md-8">
+        <table class="table">
+            <tr>
+                <th>Школа</th>
+                <th>Классы</th>
+                <th>Ученики</th>
+            </tr>
+            {% for school in schools %}
+                <tr>
+                    <td><a href="{{ path('santa_coolschool_school_show', {'slug': school.slug}) }}">{{ school.name }}</a></td>
+                    <td>{{ school.totalStudents }}</td>
+                    <td>{{ school.totalClasses }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

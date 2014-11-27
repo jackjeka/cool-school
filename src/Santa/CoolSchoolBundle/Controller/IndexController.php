@@ -19,6 +19,7 @@ class IndexController extends Controller
     {
         $schools = $this->getDoctrine()->getManager()->getRepository('SantaCoolSchoolBundle:School')->findAll();
 
-        return $schools;;
+        return ['schools' => $schools];
+
     }
 }

@@ -4,6 +4,7 @@ namespace Santa\CoolSchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * School
@@ -49,11 +50,25 @@ class School
      */
     private $totalClasses;
 
+    /**
+     * @var string $logo
+     * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
+     * @ORM\Column(name="logo", type="string", length=255)
+     */
+    private $logo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=255)
+     */
+    private $description;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,13 +91,12 @@ class School
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
-
 
 
     /**
@@ -96,6 +110,7 @@ class School
         $this->slug = $slug;
         return $this;
     }
+
     /**
      * Get slug
      *
@@ -122,7 +137,7 @@ class School
     /**
      * Get totalStudents
      *
-     * @return integer 
+     * @return integer
      */
     public function getTotalStudents()
     {
@@ -145,10 +160,56 @@ class School
     /**
      * Get totalClasses
      *
-     * @return integer 
+     * @return integer
      */
     public function getTotalClasses()
     {
         return $this->totalClasses;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     * @return School
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string 
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return School
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

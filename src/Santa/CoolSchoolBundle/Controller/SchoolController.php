@@ -8,10 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route as Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method as Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
-//use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-//use Symfony\Component\Routing\Annotation\Route;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
 class SchoolController extends Controller
@@ -26,14 +22,12 @@ class SchoolController extends Controller
         if ($request->isMethod('POST')) {
             $school = new School();
             $school
-                ->setName($request->request->get('name'))
+                ->setName($request->Request->get('name'))
                 ;
             $this->getDoctrine()->getManager()->persist($school);
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirect($this->get('router')->generate('cool_school'));
+            return $this->redirect($this->get('router')->generate('coolschool_school_add'));
         }
-//        return ['students' => $this->getStudentRepository()->findAll()];
-
     }
 
     /**
@@ -43,14 +37,9 @@ class SchoolController extends Controller
      */
     public function showAction($slug)
     {
-        return ['school' => $this->getSchoolRepository()->findOneBySlug($slug)];
-    }
-    /**
-     * @return EntityManager
-     */
-    protected function getEm()
-    {
-        return $this->getDoctrine()->getManager();
-    }
+        return ['school' => $this->getDoctrine()->getRepository(School::class)->findOneBySlug($slug)];
 
+//        return $this->redirect($this->get('router')->generate('coolschool_school_show'));
+
+    }
 }

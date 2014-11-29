@@ -3,19 +3,18 @@
 {% block title %}CoolSchoolproject{% endblock %}
 {% block container %}
     <div class="row">
-    <div class="col-md-8">
-        <table class="table">
-            <tr>
-                <th>Школа</th>
-                <th>Классы</th>
-                <th>Ученики</th>                                                                                                    
-            </tr>
+        <div class="col-sm-6 col-md-4">
             {% for school in schools %}
-                <tr>
-                    <td><a href="{{ path('santa_coolschool_school_show', {'slug': school.slug}) }}">{{ school.name }}</a></td>
-                    <td>{{ school.totalStudents }}</td>
-                <td>{{ school.totalClasses }}</td>
-                {% endfor %}
-        </table>
+            <div class="thumbnail">
+                <img data-src="holder.js/300x300" alt="Здесь школьный логотип">
+                <div class="caption">
+                    <h3>{{ school.name }}</h3>
+                    <p>{{ school.description }}</p>
+                    <a href="#">Ученики <span class="badge">{{ school.totalStudents }}</span></a>
+                    <a href="#">Ученики <span class="badge">{{ school.totalClasses }}</span></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

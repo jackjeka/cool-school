@@ -16,6 +16,7 @@ class LoadSchoolData implements FixtureInterface
             ->setName('Гуманитарно-правовой лицей')
             ->setTotalClasses(1)
             ->setTotalStudents(1)
+            ->setDescription('Отдавайте к нам своих детей - мы их не едим (*пока что)')
             ;
 
         $school2 = new School();
@@ -23,6 +24,7 @@ class LoadSchoolData implements FixtureInterface
             ->setName('Школа №11')
             ->setTotalClasses(10)
             ->setTotalStudents(128)
+            ->setDescription('Все хорошо')
         ;
 
         $manager->persist($school1);

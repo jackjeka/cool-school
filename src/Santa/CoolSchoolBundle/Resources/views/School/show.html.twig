@@ -3,5 +3,16 @@
 {% block title %}{% endblock %}
 
 {% block container %}
-    {{ school.name }}
+    <div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img data-src="holder.js/300x300" alt="Здесь школьный логотип">
+            <div class="caption">
+                <h3>{{ school.name }}</h3>
+                <p>{{ school.description }}</p>
+                <p><a href="#" class="btn btn-primary" role="button">Зделать что-то</a> <a href="#" class="btn btn-default" role="button">... и еще что-то</a></p>
+            </div>
+        </div>
+    </div>
+    </div>
 {% endblock %}

@@ -26,7 +26,7 @@ class School
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
@@ -35,7 +35,7 @@ class School
      *
      * @ORM\Column(name="schoolnumber", type="integer", nullable=true)
      */
-    private $schoolnumber
+    private $schoolnumber;
 
     /**
      * @var string
@@ -225,5 +225,51 @@ class School
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set schoolnumber
+     *
+     * @param integer $schoolnumber
+     * @return School
+     */
+    public function setSchoolnumber($schoolnumber)
+    {
+        $this->schoolnumber = $schoolnumber;
+
+        return $this;
+    }
+
+    /**
+     * Get schoolnumber
+     *
+     * @return integer 
+     */
+    public function getSchoolnumber()
+    {
+        return $this->schoolnumber;
+    }
+
+    /**
+     * Set schooltype
+     *
+     * @param string $schooltype
+     * @return School
+     */
+    public function setSchooltype($schooltype)
+    {
+        $this->schooltype = $schooltype;
+
+        return $this;
+    }
+
+    /**
+     * Get schooltype
+     *
+     * @return string 
+     */
+    public function getSchooltype()
+    {
+        return $this->schooltype;
     }
 }

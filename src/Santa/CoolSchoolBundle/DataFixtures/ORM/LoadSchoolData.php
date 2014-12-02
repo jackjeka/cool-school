@@ -13,7 +13,9 @@ class LoadSchoolData implements FixtureInterface
     {
         $school1 = new School();
         $school1
-            ->setName('Гуманитарно-правовой лицей')
+
+            ->setName('Гуманитарно правовой лицей')
+            ->setSchooltype('Общеобразовательная школа')
             ->setTotalClasses(1)
             ->setTotalStudents(1)
             ->setDescription('Отдавайте к нам своих детей - мы их не едим (*пока что)')
@@ -21,7 +23,8 @@ class LoadSchoolData implements FixtureInterface
 
         $school2 = new School();
         $school2
-            ->setName('Школа №11')
+            ->setSchoolnumber(11)
+            ->setSchooltype('Общеобразовательная школа')
             ->setTotalClasses(10)
             ->setTotalStudents(128)
             ->setDescription('Все хорошо')

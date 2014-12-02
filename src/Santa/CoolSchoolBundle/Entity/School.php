@@ -31,6 +31,20 @@ class School
     private $name;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="schoolnumber", type="integer", nullable=true)
+     */
+    private $schoolnumber
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="schooltype", type="string", length=255)
+     */
+    private $schooltype;
+
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255)
      */

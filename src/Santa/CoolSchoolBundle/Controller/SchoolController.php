@@ -17,18 +17,18 @@ class SchoolController extends Controller
      * @Route("/add")
      * @Method({"GET", "POST"})
      */
-    public function addAction(Request $request)
+    public function addAction()
     {
-        if ($request->isMethod('POST')) {
-            $school = new School();
-            $school
-                ->setName($request->Request->get('name'))
-                ;
-            $this->getDoctrine()->getManager()->persist($school);
-            $this->getDoctrine()->getManager()->flush();
-            return $this->redirect($this->get('router')->generate('coolschool_school_add'));
-        }
+//        if ($request->isMethod('POST')) {
+//            $school = new School();
+//            $school
+//                ->setName($request->Request->get('name'))
+//                ;
+//            $this->getDoctrine()->getManager()->persist($school);
+//            $this->getDoctrine()->getManager()->flush();
+        return $this->generate('coolschool_school_add');
     }
+
 
     /**
      * @Template()
@@ -40,6 +40,6 @@ class SchoolController extends Controller
         return ['school' => $this->getDoctrine()->getRepository(School::class)->findOneBySlug($slug)];
 
 //        return $this->redirect($this->get('router')->generate('coolschool_school_show'));
-
     }
+
 }

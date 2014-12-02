@@ -1,4 +1,5 @@
 services:
-#    santa_cool_school.example:
-#        class: Santa\CoolSchoolBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    santa.twig.santa_extension:
+        class: Santa\CoolSchoolBundle\Twig\SantaExtension
+        tags:
+                    - { name: santa.extension }

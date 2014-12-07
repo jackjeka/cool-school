@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route as Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method as Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template as Template;
-
+use Symfony\Component\HttpFoundation\Request;
 
 class SchoolController extends Controller
 {
@@ -18,9 +18,18 @@ class SchoolController extends Controller
      * @Route("/add")
      * @Method({"GET", "POST"})
      */
-    public function addAction()
+    public function addAction(Request $request)
     {
-        $form = $this->createForm(new SchoolType(), new School());
+        $school = new School();
+        $form = $this->createForm(new SchoolType($school));
+
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($school);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirect($this->get('router')->generate('index_index'));
+        }
 
         return ['form' => $form->createView()];
     }

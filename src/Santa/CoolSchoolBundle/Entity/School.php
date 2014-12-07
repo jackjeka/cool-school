@@ -40,7 +40,7 @@ class School
     /**
      * @var string
      *
-     * @ORM\Column(name="schooltype", type="string", length=255)
+     * @ORM\Column(name="schooltype", type="string", length=255, nullable=true)
      */
     private $schooltype;
 
@@ -65,16 +65,9 @@ class School
     private $totalClasses;
 
     /**
-     * @var string $logo
-     * @Assert\File( maxSize = "1024k", mimeTypesMessage = "Please upload a valid Image")
-     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
-     */
-    private $logo;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=255)
+     * @ORM\Column(name="description", type="text", length=255, nullable=true)
      */
     private $description;
 

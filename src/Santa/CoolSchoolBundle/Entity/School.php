@@ -4,13 +4,12 @@ namespace Santa\CoolSchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * School
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Santa\CoolSchoolBundle\Repository\SchoolRepository")
  */
 class School
 {
@@ -26,23 +25,9 @@ class School
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="schoolnumber", type="integer", nullable=true)
-     */
-    private $schoolnumber;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="schooltype", type="string", length=255, nullable=true)
-     */
-    private $schooltype;
 
     /**
      * @Gedmo\Slug(fields={"name"})
@@ -53,29 +38,50 @@ class School
     /**
      * @var integer
      *
-     * @ORM\Column(name="totalStudents", type="integer", nullable=true)
+     * @ORM\Column(name="number", type="integer")
      */
-    private $totalStudents;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="totalClasses", type="integer", nullable=true)
-     */
-    private $totalClasses;
+    private $number;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", length=255, nullable=true)
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="totalclasses", type="integer")
+     */
+    private $totalclasses;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="totalstudents", type="integer")
+     */
+    private $totalstudents;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="specializations", type="array")
+     */
+    private $specializations;
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -98,103 +104,57 @@ class School
     /**
      * Get name
      *
-     * @return string
+     * @return string 
      */
     public function getName()
     {
         return $this->name;
     }
 
-
     /**
-     * Set slug
+     * Set number
      *
-     * @param string $slug
+     * @param integer $number
      * @return School
      */
-    public function setSlug($slug)
+    public function setNumber($number)
     {
-        $this->slug = $slug;
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set totalStudents
-     *
-     * @param integer $totalStudents
-     * @return School
-     */
-    public function setTotalStudents($totalStudents)
-    {
-        $this->totalStudents = $totalStudents;
+        $this->number = $number;
 
         return $this;
     }
 
     /**
-     * Get totalStudents
+     * Get number
      *
-     * @return integer
+     * @return integer 
      */
-    public function getTotalStudents()
+    public function getNumber()
     {
-        return $this->totalStudents;
+        return $this->number;
     }
 
     /**
-     * Set totalClasses
+     * Set type
      *
-     * @param integer $totalClasses
+     * @param string $type
      * @return School
      */
-    public function setTotalClasses($totalClasses)
+    public function setType($type)
     {
-        $this->totalClasses = $totalClasses;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get totalClasses
-     *
-     * @return integer
-     */
-    public function getTotalClasses()
-    {
-        return $this->totalClasses;
-    }
-
-    /**
-     * Set logo
-     *
-     * @param string $logo
-     * @return School
-     */
-    public function setLogo($logo)
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
-    /**
-     * Get logo
+     * Get type
      *
      * @return string 
      */
-    public function getLogo()
+    public function getType()
     {
-        return $this->logo;
+        return $this->type;
     }
 
     /**
@@ -221,48 +181,94 @@ class School
     }
 
     /**
-     * Set schoolnumber
+     * Set totalclasses
      *
-     * @param integer $schoolnumber
+     * @param integer $totalclasses
      * @return School
      */
-    public function setSchoolnumber($schoolnumber)
+    public function setTotalclasses($totalclasses)
     {
-        $this->schoolnumber = $schoolnumber;
+        $this->totalclasses = $totalclasses;
 
         return $this;
     }
 
     /**
-     * Get schoolnumber
+     * Get totalclasses
      *
      * @return integer 
      */
-    public function getSchoolnumber()
+    public function getTotalclasses()
     {
-        return $this->schoolnumber;
+        return $this->totalclasses;
     }
 
     /**
-     * Set schooltype
+     * Set totalstudents
      *
-     * @param string $schooltype
+     * @param integer $totalstudents
      * @return School
      */
-    public function setSchooltype($schooltype)
+    public function setTotalstudents($totalstudents)
     {
-        $this->schooltype = $schooltype;
+        $this->totalstudents = $totalstudents;
 
         return $this;
     }
 
     /**
-     * Get schooltype
+     * Get totalstudents
+     *
+     * @return integer 
+     */
+    public function getTotalstudents()
+    {
+        return $this->totalstudents;
+    }
+
+    /**
+     * Set specializations
+     *
+     * @param array $specializations
+     * @return School
+     */
+    public function setSpecializations($specializations)
+    {
+        $this->specializations = $specializations;
+
+        return $this;
+    }
+
+    /**
+     * Get specializations
+     *
+     * @return array 
+     */
+    public function getSpecializations()
+    {
+        return $this->specializations;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return School
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
      *
      * @return string 
      */
-    public function getSchooltype()
+    public function getSlug()
     {
-        return $this->schooltype;
+        return $this->slug;
     }
 }

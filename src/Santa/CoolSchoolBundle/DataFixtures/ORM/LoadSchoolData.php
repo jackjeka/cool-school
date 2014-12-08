@@ -13,25 +13,25 @@ class LoadSchoolData implements FixtureInterface
     {
         $school1 = new School();
         $school1
-
             ->setName('Гуманитарно правовой лицей')
-            ->setSchooltype('Общеобразовательная школа')
-            ->setTotalClasses(1)
-            ->setTotalStudents(1)
-            ->setDescription('Отдавайте к нам своих детей - мы их не едим (*пока что)')
-            ;
-
-        $school2 = new School();
-        $school2
-            ->setSchoolnumber(11)
-            ->setSchooltype('Общеобразовательная школа')
-            ->setTotalClasses(10)
-            ->setTotalStudents(128)
-            ->setDescription('Все хорошо')
+            ->setNumber(1)
+            ->setType('Общеобразовательная')
+            ->setDescription('Отдавайте к нам своих детей - мы их не едим')
+            ->setTotalclasses(1)
+            ->setTotalstudents(10);
         ;
 
+//        $school2 = new School();
+//        $school2
+//            ->setSchoolnumber(11)
+//            ->setSchooltype('Общеобразовательная школа')
+//            ->setTotalClasses(10)
+//            ->setTotalStudents(128)
+//            ->setDescription('Все хорошо')
+//        ;
+
         $manager->persist($school1);
-        $manager->persist($school2);
+//        $manager->persist($school2);
         $manager->flush();
 
     }

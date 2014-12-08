@@ -9,10 +9,10 @@
                 <img data-src="holder.js/300x300" alt="Здесь школьный логотип">
                 <div class="caption">
                     <h3><a href="{{ path('santa_coolschool_school_show', {'slug': school.slug}) }}">{{ school.name }}</a></h3>
-                    <h4>{{ school.schooltype }} {{ school.schoolnumber }}</h4>
+                    <h4>{{ school.type }} {{ school.number }}</h4>
                     <p>{{ school.description }}</p>
-                    <a href="#">Ученики <span class="badge">{{ school.totalStudents }}</span></a>
-                    <a href="#">Классы <span class="badge">{{ school.totalClasses }}</span></a>
+                    <a href="#">Ученики <span class="badge">{{ school.totalstudents }}</span></a>
+                    <a href="#">Классы <span class="badge">{{ school.totalclasses }}</span></a>
                 </div>
             </div>
             {% endfor %}

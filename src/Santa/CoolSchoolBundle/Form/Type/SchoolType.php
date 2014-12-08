@@ -18,10 +18,14 @@ class SchoolType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('schoolType')
-            ->add('schoolNumber')
-            ->add('description');
+            ->add('name', 'text')
+            ->add('type', 'text')
+            ->add('number', 'integer')
+            ->add('description', 'textarea')
+            ->add('totalstudents', 'hidden', array('empty_data'  => 0))
+            ->add('totalclasses', 'hidden', array('empty_data'  => 0))
+            ;
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -33,6 +37,6 @@ class SchoolType extends AbstractType
 
     public function getName()
     {
-        return 'school';
+        return 'School';
     }
 } 

@@ -19,7 +19,7 @@ class LoadSchoolData implements FixtureInterface
             ->setType('Общеобразовательная')
             ->setDescription('Отдавайте к нам своих детей - мы их не едим')
             ->setTotalclasses(1)
-            ->setTotalstudents(10);
+            ->setTotalstudents(10)
         ;
 
         $spec1 = new Specialization();

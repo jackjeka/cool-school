@@ -21,7 +21,7 @@ class SchoolController extends Controller
      * @Route("/add")
      * @Method({"GET", "POST"})
      */
-    public function addAction(Request $request)
+    public function addAction(                                                                                                                                                          Request $request)
     {
         $school = new School();
 
@@ -45,6 +45,6 @@ class SchoolController extends Controller
      */
     public function showAction($slug)
     {
-        return ['school' => $this->getDoctrine()->getManager()->getRepository('CoolSchoolBundle:School')->findOneBySlug($slug)];
+        return ['school' => $this->getDoctrine()->getManager()->getRepository('SantaCoolSchoolBundle:School')->findOneBySlug($slug)];
     }
 }

@@ -3,6 +3,7 @@ namespace Santa\CoolSchoolBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Santa\CoolSchoolBundle\Entity\School;
+use Santa\CoolSchoolBundle\Entity\Specialization;
 
 class LoadSchoolData implements FixtureInterface
 {
@@ -21,17 +22,19 @@ class LoadSchoolData implements FixtureInterface
             ->setTotalstudents(10);
         ;
 
-//        $school2 = new School();
-//        $school2
-//            ->setSchoolnumber(11)
-//            ->setSchooltype('Общеобразовательная школа')
-//            ->setTotalClasses(10)
-//            ->setTotalStudents(128)
-//            ->setDescription('Все хорошо')
-//        ;
+        $spec1 = new Specialization();
+        $spec1
+            ->setName('Ничего особенного')
+        ;
+
+        $spec2 = new Specialization();
+        $spec2
+            ->setName('Прикладное заборостроение')
+        ;
 
         $manager->persist($school1);
-//        $manager->persist($school2);
+        $manager->persist($spec1);
+        $manager->persist($spec2);
         $manager->flush();
 
     }

@@ -22,6 +22,9 @@ class SchoolType extends AbstractType
             ->add('type', 'text')
             ->add('number', 'integer')
             ->add('description', 'textarea')
+            ->add('specializations', 'entity', array(
+            'class' => 'Santa\CoolSchoolBundle\Entity\Specialization',
+            'multiple' => true))
             ->add('totalstudents', 'hidden', array('empty_data'  => 0))
             ->add('totalclasses', 'hidden', array('empty_data'  => 0))
             ;

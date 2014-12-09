@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Specialization
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Santa\CoolSchoolBundle\Entity\SpecializationRepository")
+ * @ORM\Entity(repositoryClass="Santa\CoolSchoolBundle\Repository\SpecializationRepository")
  */
 class Specialization
 {
@@ -29,9 +29,9 @@ class Specialization
     private $name;
 
     /**
-     * @var array
+     * @var
      *
-     * @ORM\Column(name="schools", type="array")
+     * @ORM\ManyToOne(targetEntity="Santa\CoolSchoolBundle\Entity\School", inversedBy="specializations", cascade={"persist"})
      */
     private $schools;
 
@@ -90,5 +90,10 @@ class Specialization
     public function getSchools()
     {
         return $this->schools;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

@@ -71,9 +71,9 @@ class School
     private $totalstudents;
 
     /**
-     * @var array
+     * @var
      *
-     * @ORM\Column(name="specializations", type="array")
+     * @ORM\OneToMany(targetEntity="Santa\CoolSchoolBundle\Entity\Specialization", mappedBy="schools", cascade={"persist"})
      */
     private $specializations;
 
@@ -227,22 +227,27 @@ class School
     }
 
     /**
-     * Set specializations
-     *
-     * @param array $specializations
-     * @return School
+     * Constructor
      */
-    public function setSpecializations($specializations)
+    public function __construct()
     {
-        $this->specializations = $specializations;
-
-        return $this;
+        $this->specializations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
+     * Add specializations
+     * @param Specialization $specializations
+     * @return Specialization
+     */
+    public function addSpecializations(\Santa\CoolSchoolBundle\Entity\Specialization $specializations)
+    {
+        $this->specializations[] = $specializations;
+        return $this;
+    }
+    /**
      * Get specializations
      *
-     * @return array 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSpecializations()
     {
@@ -270,5 +275,10 @@ class School
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

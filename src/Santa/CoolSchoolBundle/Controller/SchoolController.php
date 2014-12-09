@@ -3,6 +3,7 @@
 namespace Santa\CoolSchoolBundle\Controller;
 
 use Santa\CoolSchoolBundle\Entity\School;
+use Santa\CoolSchoolBundle\Entity\Specialization;
 use Santa\CoolSchoolBundle\Repository\SchoolRepository;
 use Santa\CoolSchoolBundle\Form\Type\SchoolType;
 use Doctrine\ORM\EntityManager;
@@ -23,9 +24,14 @@ class SchoolController extends Controller
      */
     public function addAction(Request $request)
     {
+        $specializations = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('SantaCoolSchoolBundle:Specialization')
+            ->findAll();
+
         $school = new School();
 
-        $form = $this->createForm(new SchoolType, $school);
+        $form = $this->createForm(new SchoolType($specializations), $school);
 
         $form->handleRequest($request);
         if ($form->isValid()) {

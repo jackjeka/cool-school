@@ -11,14 +11,16 @@
                     <h3><a href="{{ path('santa_coolschool_school_show', {'slug': school.slug}) }}">{{ school.name }}</a></h3>
                     <h4>{{ school.type }} {{ school.number }}</h4>
                     <p>{{ school.description }}</p>
-                    <ul class="list-group">
-                        {% for spec in school.specializations %}<li class="list-group-item">{{ spec }}</li>{% endfor %}
-                    </ul>
                     <div>
-                    <a href="#">Ученики</a> <span class="badge">{{ school.totalstudents }}</span>
+                        {% for specialization in school.specializations %}
+                        <h5>{{ spec }}</h5>
+                        {% endfor %}
                     </div>
                     <div>
-                    <a href="#">Классы</a> <span class="badge">{{ school.totalclasses }}</span>
+                        <a href="#">Ученики</a> <span class="badge">{{ school.totalstudents }}</span>
+                    </div>
+                    <div>
+                        <a href="#">Классы</a> <span class="badge">{{ school.totalclasses }}</span>
                     </div>
                 </div>
               </div>

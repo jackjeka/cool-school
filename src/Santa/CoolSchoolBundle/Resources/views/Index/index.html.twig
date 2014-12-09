@@ -4,23 +4,26 @@
 {% block container %}
     <div class="row">
         {% for school in schools %}
-        <div class="col-md-4">
+        <div class="col-sx-6 col-md-4">
             <div class="thumbnail">
-                <img data-src="holder.js/300x300" alt="Здесь школьный логотип">
+                <img src="holder.js/300x300" alt="Здесь школьный логотип">
                 <div class="caption">
                     <h3><a href="{{ path('santa_coolschool_school_show', {'slug': school.slug}) }}">{{ school.name }}</a></h3>
                     <h4>{{ school.type }} {{ school.number }}</h4>
                     <p>{{ school.description }}</p>
-                    {% for spec in school.specializations %}
                     <ul class="list-group">
-                            <li class="list-group-item">{{ spec }}</li>
+                        {% for spec in school.specializations %}<li class="list-group-item">{{ spec }}</li>{% endfor %}
                     </ul>
-                    {% endfor %}
-                    <a href="#">Ученики <span class="badge">{{ school.totalstudents }}</span></a>
-                    <a href="#">Классы <span class="badge">{{ school.totalclasses }}</span></a>
+                    <div>
+                    <a href="#">Ученики</a> <span class="badge">{{ school.totalstudents }}</span>
+                    </div>
+                    <div>
+                    <a href="#">Классы</a> <span class="badge">{{ school.totalclasses }}</span>
+                    </div>
                 </div>
-            </div>
+              </div>
         </div>
+            {#<div class="clearfix col-sx-6 col-md-4"></div>#}
         {% endfor %}
     </div>
     {% endblock %}

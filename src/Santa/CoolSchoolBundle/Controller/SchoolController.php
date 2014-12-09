@@ -21,7 +21,7 @@ class SchoolController extends Controller
      * @Route("/add")
      * @Method({"GET", "POST"})
      */
-    public function addAction(                                                                                                                                                          Request $request)
+    public function addAction(Request $request)
     {
         $school = new School();
 

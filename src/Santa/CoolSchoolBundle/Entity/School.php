@@ -77,6 +77,13 @@ class School
      */
     private $specializations;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->specializations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -227,19 +234,11 @@ class School
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->specializations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add specializations
+     * Set specializations
      * @param Specialization $specializations
      * @return Specialization
      */
-    public function addSpecializations(\Santa\CoolSchoolBundle\Entity\Specialization $specializations)
+    public function setSpecializations(\Santa\CoolSchoolBundle\Entity\Specialization $specializations)
     {
         $this->specializations[] = $specializations;
         return $this;

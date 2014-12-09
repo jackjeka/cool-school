@@ -73,7 +73,7 @@ class School
     /**
      * @var
      *
-     * @ORM\OneToMany(targetEntity="Santa\CoolSchoolBundle\Entity\Specialization", mappedBy="schools", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Santa\CoolSchoolBundle\Entity\Specialization", mappedBy="schools", cascade={"persist"})
      */
     private $specializations;
 
@@ -234,15 +234,15 @@ class School
     }
 
     /**
-     * Set specializations
-     * @param Specialization $specializations
-     * @return Specialization
+     *Add specialization
+     *
      */
-    public function setSpecializations(\Santa\CoolSchoolBundle\Entity\Specialization $specializations)
+    public function addSpecialization(Specialization $specialization)
     {
-        $this->specializations[] = $specializations;
-        return $this;
+        $specialization->addSchool($this);
+        $this->specializations[] = $specialization;
     }
+
     /**
      * Get specializations
      *

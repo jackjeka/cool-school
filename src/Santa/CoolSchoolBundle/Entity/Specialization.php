@@ -31,10 +31,17 @@ class Specialization
     /**
      * @var
      *
-     * @ORM\ManyToOne(targetEntity="Santa\CoolSchoolBundle\Entity\School", inversedBy="specializations", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Santa\CoolSchoolBundle\Entity\School", inversedBy="specializations", cascade={"persist"})
      */
     private $schools;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->schools = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -70,16 +77,12 @@ class Specialization
     }
 
     /**
-     * Set schools
-     *
-     * @param array $schools
-     * @return Specialization
+     *Add School
+     * @return School
      */
-    public function setSchools($schools)
+    public function addSchool(School $school)
     {
-        $this->schools = $schools;
-
-        return $this;
+        $this->schools[] = $school;
     }
 
     /**

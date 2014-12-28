@@ -1,0 +1,11 @@
+navbar:
+    navbar_brand: "Клевая школа"
+    add_school_button: "Добавить новую"
+
+school:
+    school_name: "Название"
+    school_type: "Тип учебного заведения"
+    school_number: "Номер"
+    school_description: "Описание"
+    school_specializations: "Специализации"
+    create_school_button: "Добавить"

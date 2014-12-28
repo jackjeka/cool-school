@@ -1,0 +1,11 @@
+navbar:
+    navbar_brand: "CoolSchoolProject"
+    add_school_button: "Add school"
+
+school:
+    school_name: "School name"
+    school_type: "School type"
+    school_number: "School number"
+    school_description: "School description"
+    school_specializations: "School specializations"
+    create_school_button: "Create school"

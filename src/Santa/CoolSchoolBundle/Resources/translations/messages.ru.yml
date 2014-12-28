@@ -8,4 +8,5 @@ school:
     school_number: "Номер"
     school_description: "Описание"
     school_specializations: "Специализации"
+    school_add_form_header: "Добавить новую школу"
     create_school_button: "Добавить"

@@ -25,15 +25,29 @@ class SchoolType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text')
-            ->add('type', 'text')
-            ->add('number', 'integer')
-            ->add('description', 'textarea')
+            ->add('name', 'text', array(
+                'label' => 'school.school_name'
+            ))
+            ->add('type', 'text', array(
+                'label' => 'school.school_type'
+            ))
+            ->add('number', 'integer', array(
+                'label' => 'school.school_number'
+            ))
+            ->add('description', 'textarea', array(
+                'label' => 'school.school_description'
+            ))
             ->add('specializations', 'entity', array(
-            'class' => 'Santa\CoolSchoolBundle\Entity\Specialization',
-            'multiple' => true))
-            ->add('totalstudents', 'hidden', array('empty_data'  => 0))
-            ->add('totalclasses', 'hidden', array('empty_data'  => 0))
+                'label' => 'school.school_specializations',
+                'class' => 'Santa\CoolSchoolBundle\Entity\Specialization',
+                'multiple' => true
+            ))
+            ->add('totalstudents', 'hidden', array(
+                'empty_data'  => 0
+            ))
+            ->add('totalclasses', 'hidden', array(
+                'empty_data'  => 0
+            ))
             ;
 
     }

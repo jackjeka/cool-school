@@ -8,4 +8,6 @@ school:
     school_number: "School number"
     school_description: "School description"
     school_specializations: "School specializations"
-    create_school_button: "Create school"
+    school_add_form_header: "Create new school"
+    create_school_button: "Create"
+

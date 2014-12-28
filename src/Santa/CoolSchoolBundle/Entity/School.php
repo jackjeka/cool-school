@@ -3,6 +3,8 @@
 namespace Santa\CoolSchoolBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -10,6 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Santa\CoolSchoolBundle\Repository\SchoolRepository")
+ * @UniqueEntity("name")
  */
 class School
 {
@@ -24,8 +27,9 @@ class School
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min = 2, max = 50)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 
@@ -37,7 +41,8 @@ class School
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank()
+     * @Assert\GreaterThan(value = 0)
      * @ORM\Column(name="number", type="integer")
      */
     private $number;

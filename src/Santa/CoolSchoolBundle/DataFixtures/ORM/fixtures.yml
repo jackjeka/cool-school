@@ -1,6 +1,6 @@
 Santa\CoolSchoolBundle\Entity\School:
   schools{1..25}:
-    name: <word()>
+    name (unique): <word()>
     description: <realText()>
     number: <numberBetween(1, 100)>
     type: <schoolTypeName()>
@@ -9,5 +9,6 @@ Santa\CoolSchoolBundle\Entity\School:
     totalClasses: <numberBetween(1, 100)>
 
 Santa\CoolSchoolBundle\Entity\Specialization:
-  specializations{1..10}:
-    name: <specializationName()>
+  specializations{1..6}:
+    name (unique): <specializationName()>
+    school: @schools*

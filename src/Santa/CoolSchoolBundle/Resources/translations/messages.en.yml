@@ -2,6 +2,10 @@ navbar:
     navbar_brand: "CoolSchoolProject"
     add_school_button: "Add school"
 
+lang:
+    russian: "Russian"
+    english: "English"
+
 school:
     school_name: "School name"
     school_type: "School type"

@@ -2,6 +2,10 @@ navbar:
     navbar_brand: "Клевая школа"
     add_school_button: "Добавить новую"
 
+lang:
+    russian: "Русский"
+    english: "Английский"
+
 school:
     school_name: "Название"
     school_type: "Тип учебного заведения"

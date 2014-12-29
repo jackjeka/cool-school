@@ -9,8 +9,8 @@
             <h3>{{ school.name }}</h3>
             <h4>{{ school.number|schoolNumber}}</h4>
             <p>{{ school.description }}</p>
-            <a href="#" class="btn btn-primary" role="button">Я ученик</a>
-            <a href="#" class="btn btn-default" role="button">Я учитель</a>
+            <a href="#" class="btn btn-primary" role="button">{{ "teacher.register_in_school"|trans() }}</a>
+            <a href="#" class="btn btn-default" role="button">{{ "student.register_in_school"|trans() }}</a>
         </div>
     </div>
 

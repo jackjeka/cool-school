@@ -15,3 +15,9 @@ school:
     school_add_form_header: "Create new school"
     create_school_button: "Create"
 
+teacher:
+    register_in_school: "I'm a teacher"
+
+student:
+    register_in_school: "I'm a student"
+

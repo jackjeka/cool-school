@@ -14,3 +14,9 @@ school:
     school_specializations: "Специализации"
     school_add_form_header: "Добавить новую школу"
     create_school_button: "Добавить"
+
+teacher:
+    register_in_school: "Я учитель"
+
+student:
+    register_in_school: "Я ученик"

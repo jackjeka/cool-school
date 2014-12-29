@@ -14,11 +14,25 @@
             <nav class="navbar navbar-inverse" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="{{ path('santa_coolschool_index_index') }}">CoolSchool</a>
+                        <a class="navbar-brand" href="{{ path('santa_coolschool_index_index') }}">
+                            {{ "navbar.navbar_brand"|trans() }}
+                        </a>
                     </div>
-                    <div><a class="btn btn-default navbar-btn" type="button" href="{{ path('santa_coolschool_school_add') }}">Добавить школу</a></div>
+                    <div>
+                        <a class="btn btn-default navbar-btn" type="button" href="{{ path('santa_coolschool_school_add') }}">
+                            {{ "navbar.add_school_button"|trans() }}
+                        </a>
+                    </div>
                 </div>
             </nav>
+            <div class="btn-group" role="group" aria-label="Select language">
+                <button type="button" class="btn btn-default">
+                    <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">{{ "lang.english"|trans() }}</a>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'ru'}))}}">{{ "lang.russian"|trans() }}</a>
+                </button>
+            </div>
             {% block container %}
 
             {% endblock %}

@@ -2,5 +2,6 @@ santa_cool_school:
     resource: "@SantaCoolSchoolBundle/Controller/"
     type : annotation
     prefix:   /{_locale}/
+    defaults: {_locale: en}
     requirements:
         _locale: en|ua|ru
